@@ -67,7 +67,6 @@ namespace Do_an
                 else if (thaotac == "Tìm")
                 {
                 //Search inf
-                l_test.Text=Dataconnection.conn
                 cmd.CommandText = "select * from tb_NhanVien where MaNV=@manv";
                 loaddata();
             }
