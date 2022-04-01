@@ -40,6 +40,7 @@ namespace Do_an
         }
         public static void run(string sql)
         {
+            MoketNoi();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = sqlCon;
             cmd.CommandText = sql;

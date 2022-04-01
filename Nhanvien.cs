@@ -23,6 +23,8 @@ namespace Do_an
         {
                 string query = "select * from tb_NhanVien";
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = Dataconnection.sqlCon;
+                cmd.CommandText = query;
                 cmd.Parameters.AddWithValue("@manv", tb_manv.Text);
                 cmd.Parameters.AddWithValue("@hoten", tb_hoten.Text);
                 cmd.Parameters.AddWithValue("@ngaysinh", tb_ngaysinh.Text);
@@ -30,7 +32,7 @@ namespace Do_an
                 cmd.Parameters.AddWithValue("@quequan", tb_quequan.Text);
                 cmd.Parameters.AddWithValue("@sdt", tb_sdt.Text);
                 cmd.Parameters.AddWithValue("@cccd", tb_cmtnd.Text);
-            dataGridView1.DataSource = Dataconnection.truyvan(query);
+                dataGridView1.DataSource = Dataconnection.truyvan(query);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,31 +48,6 @@ namespace Do_an
                 Dataconnection.run(them);
                 hienthidata();
             }
-                else if(thaotac == "Sửa")
-                {
-                //Change inf
-                cmd.CommandText = "update tb_NhanVien set MaNV=@manv,Hoten=@hoten,Ngaysinh=@ngaysinh,Gioitinh=@gioitinh,Quequan=@quequan,SDT=@sdt,CMTND=@cccd where MaNV=@manv";
-                loaddata();
-                Dataconnection.run(cmd.CommandText);
-            }
-                else if(thaotac== "Xóa")
-                {
-                //Delete inf
-                cmd.CommandText = "delete from tb_NhanVien where MaNV=@manv";
-                loaddata();
-            }
-                else if (thaotac == "Tìm")
-                {
-                //Search inf
-                cmd.CommandText = "select * from tb_NhanVien where MaNV=@manv";
-                loaddata();
-            }
-                else
-                {
-                    MessageBox.Show("Đã có lỗi xảy ra");
-                }   
-            
-
             
         }
 
