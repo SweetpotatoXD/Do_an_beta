@@ -22,10 +22,7 @@ namespace Do_an
         public void loaddata()
         {
                 string query = "select * from tb_NhanVien";
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlConnection conn = Dataconnection.sqlCon;
-                SqlCommand cmd = conn.CreateCommand();
-                
+                SqlCommand cmd = new SqlCommand();
                 cmd.Parameters.AddWithValue("@manv", tb_manv.Text);
                 cmd.Parameters.AddWithValue("@hoten", tb_hoten.Text);
                 cmd.Parameters.AddWithValue("@ngaysinh", tb_ngaysinh.Text);
@@ -33,30 +30,28 @@ namespace Do_an
                 cmd.Parameters.AddWithValue("@quequan", tb_quequan.Text);
                 cmd.Parameters.AddWithValue("@sdt", tb_sdt.Text);
                 cmd.Parameters.AddWithValue("@cccd", tb_cmtnd.Text);
-                cmd.ExecuteNonQuery();
             dataGridView1.DataSource = Dataconnection.truyvan(query);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
                 string thaotac = cb_thaotac.Text;
             //*2check option in cb_thaotac
             SqlCommand cmd = new SqlCommand("select * from tb_NhanVien");
             if (thaotac == "Thêm")
                 {
                 //Add employ information
-                l_test.Text = "Them";
-                cmd.CommandText = "insert into tb_NhanVien value(@manv,@hoten,@ngaysinh,@gioitinh,@quequan,@sdt,@cccd)";
+                string them = "insert into tb_NhanVien values(@manv,@hoten,@ngaysinh,@gioitinh,@quequan,@sdt,@cccd)";
                 loaddata();
-
-                }
+                Dataconnection.run(them);
+                hienthidata();
+            }
                 else if(thaotac == "Sửa")
                 {
                 //Change inf
                 cmd.CommandText = "update tb_NhanVien set MaNV=@manv,Hoten=@hoten,Ngaysinh=@ngaysinh,Gioitinh=@gioitinh,Quequan=@quequan,SDT=@sdt,CMTND=@cccd where MaNV=@manv";
                 loaddata();
+                Dataconnection.run(cmd.CommandText);
             }
                 else if(thaotac== "Xóa")
                 {
@@ -67,7 +62,6 @@ namespace Do_an
                 else if (thaotac == "Tìm")
                 {
                 //Search inf
-                l_test.Text=Dataconnection.conn
                 cmd.CommandText = "select * from tb_NhanVien where MaNV=@manv";
                 loaddata();
             }
@@ -90,17 +84,6 @@ namespace Do_an
             string sql = "select * from tb_NhanVien";
             dataGridView1.DataSource = Dataconnection.truyvan(sql);
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tb_manv_Click(object sender, EventArgs e)
         {
             //*1UI things
@@ -245,11 +228,6 @@ namespace Do_an
                 label13.Show();
             }
         }
-
-        private void tb_manv_Enter(object sender, EventArgs e)
-        {
-        }
-
     }
     
 }

@@ -15,7 +15,7 @@ namespace Do_an
         public static SqlConnection sqlCon;//null do dung sau khi set bien
         public static void MoketNoi()
         {
-            String str = @"Data Source=DESKTOP-DHJ1R7L\SQLEXPRESS;Initial Catalog=Do_an;Integrated Security=True";
+            String str = @"Data Source=LAPTOP-41EUFKCR\QUANG;Initial Catalog=QLKH;Integrated Security=True";
             sqlCon = new SqlConnection(str);
             sqlCon.Open();
 
@@ -38,14 +38,14 @@ namespace Do_an
             NgatKetNoi();
             return table;
         }
-    }
-    public class data_noinj
-    {
-        //data prevent from sql project
-        public int data_list;
-        public static void Data_using()
+        public static void run(string sql)
         {
-
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = sql;
+            cmd.ExecuteNonQuery();
+            NgatKetNoi();
+            cmd = null;
         }
     }
     public class tp_count
@@ -90,7 +90,6 @@ namespace Do_an
             }
         }
     }
-    
 }
     
         
