@@ -19,34 +19,27 @@ namespace Do_an
             InitializeComponent();
             
         }
-        public void loaddata()
-        {
-                string query = "select * from tb_NhanVien";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = Dataconnection.sqlCon;
-                cmd.CommandText = query;
-                cmd.Parameters.AddWithValue("@manv", tb_manv.Text);
-                cmd.Parameters.AddWithValue("@hoten", tb_hoten.Text);
-                cmd.Parameters.AddWithValue("@ngaysinh", tb_ngaysinh.Text);
-                cmd.Parameters.AddWithValue("@gioitinh", tb_gioitinh.Text);
-                cmd.Parameters.AddWithValue("@quequan", tb_quequan.Text);
-                cmd.Parameters.AddWithValue("@sdt", tb_sdt.Text);
-                cmd.Parameters.AddWithValue("@cccd", tb_cmtnd.Text);
-                dataGridView1.DataSource = Dataconnection.truyvan(query);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
                 string thaotac = cb_thaotac.Text;
             //*2check option in cb_thaotac
-            SqlCommand cmd = new SqlCommand("select * from tb_NhanVien");
             if (thaotac == "Thêm")
-                {
+            {
                 //Add employ information
-                string them = "insert into tb_NhanVien values(@manv,@hoten,@ngaysinh,@gioitinh,@quequan,@sdt,@cccd)";
-                loaddata();
+                string ma = tb_manv.Text;
+                string ten = tb_hoten.Text;
+                DateTime ngay = DateTime.Parse(dtngay.Text);
+                string gt = tb_gioitinh.Text;
+                string dia = tb_quequan.Text;
+                int sdt = int.Parse(tb_sdt.Text);
+                int cccd = int.Parse(tb_cmtnd.Text);
+                string them = "insert into tb_NhanVien values('" + ma + "','" + ten + "','" + ngay + "','" + gt + "','" + dia + "','" + sdt + "','" + cccd + "')";
                 Dataconnection.run(them);
                 hienthidata();
+            }
+            else if (thaotac == "")
+            {
+
             }
             
         }
@@ -76,7 +69,6 @@ namespace Do_an
         {
             tb_manv.Clear();
             tb_hoten.Clear();
-            tb_ngaysinh.Clear();
             tb_quequan.Clear();
             tb_sdt.Clear();
             tb_cmtnd.Clear();
@@ -101,7 +93,6 @@ namespace Do_an
             if (tp_count.count_3 == 1)
             {
                 //*1.2Delete the example word in textbox
-                tb_ngaysinh.Clear();
                 tp_count.count_3 = 2;
             }
         }
@@ -167,7 +158,6 @@ namespace Do_an
                 //Delete other data
                 tb_manv.Clear();
                 tb_hoten.Clear();
-                tb_ngaysinh.Clear();
                 tb_quequan.Clear();
                 tb_sdt.Clear();
                 tb_cmtnd.Clear();
@@ -175,7 +165,7 @@ namespace Do_an
                 tp_count.count_main = 2;
                 //Hide UI textbox
                 tb_hoten.Hide();
-                tb_ngaysinh.Hide();
+                dtngay.Hide();
                 tb_gioitinh.Hide();
                 tb_quequan.Hide();
                 tb_sdt.Hide();
@@ -191,7 +181,7 @@ namespace Do_an
             else if (cb_thaotac.Text == "Thêm" || cb_thaotac.Text == "Sửa")
             {
                 tb_hoten.Show();
-                tb_ngaysinh.Show();
+                dtngay.Show();
                 tb_gioitinh.Show();
                 tb_quequan.Show();
                 tb_sdt.Show();

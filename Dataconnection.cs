@@ -29,6 +29,16 @@ namespace Do_an
                 sqlCon = null;
             }
         }
+        public static bool ktkhoa(string sql)
+        {
+            MoketNoi();
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, sqlCon);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+                return true;
+            else return false;
+        }
         static public DataTable truyvan(string sql)
         {
             MoketNoi();
@@ -45,6 +55,7 @@ namespace Do_an
             cmd.Connection = sqlCon;
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
+
             NgatKetNoi();
             cmd = null;
         }

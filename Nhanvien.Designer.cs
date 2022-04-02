@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_gioitinh = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_ngaysinh = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_quequan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.sai = new System.Windows.Forms.Label();
             this.dung = new System.Windows.Forms.Label();
             this.l_test = new System.Windows.Forms.Label();
+            this.dtngay = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,16 +139,6 @@
             this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ngày sinh:";
-            // 
-            // tb_ngaysinh
-            // 
-            this.tb_ngaysinh.Location = new System.Drawing.Point(168, 127);
-            this.tb_ngaysinh.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_ngaysinh.Name = "tb_ngaysinh";
-            this.tb_ngaysinh.Size = new System.Drawing.Size(209, 22);
-            this.tb_ngaysinh.TabIndex = 2;
-            this.tb_ngaysinh.Text = "Định dạng: Ngày/Tháng/Năm";
-            this.tb_ngaysinh.Click += new System.EventHandler(this.tb_ngaysinh_Click);
             // 
             // label5
             // 
@@ -344,12 +334,20 @@
             this.l_test.TabIndex = 14;
             this.l_test.Text = "label14";
             // 
+            // dtngay
+            // 
+            this.dtngay.Location = new System.Drawing.Point(168, 125);
+            this.dtngay.Name = "dtngay";
+            this.dtngay.Size = new System.Drawing.Size(209, 22);
+            this.dtngay.TabIndex = 15;
+            // 
             // Nhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.dtngay);
             this.Controls.Add(this.l_test);
             this.Controls.Add(this.dung);
             this.Controls.Add(this.sai);
@@ -364,7 +362,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tb_cmtnd);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tb_ngaysinh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tb_gioitinh);
             this.Controls.Add(this.tb_sdt);
@@ -396,7 +393,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_gioitinh;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tb_ngaysinh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_quequan;
         private System.Windows.Forms.Label label6;
@@ -415,5 +411,6 @@
         private System.Windows.Forms.Label sai;
         private System.Windows.Forms.Label dung;
         private System.Windows.Forms.Label l_test;
+        private System.Windows.Forms.DateTimePicker dtngay;
     }
 }
