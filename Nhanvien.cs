@@ -23,7 +23,6 @@ namespace Do_an
         {
             string thaotac = cb_thaotac.Text;
             //*2check option in cb_thaotac
-            l_test.Text = thaotac;
             if (thaotac == "Thêm")
             {
                 //Add employ information
@@ -37,7 +36,6 @@ namespace Do_an
                 string them = "insert into tb_NhanVien values('" + ma + "','" + ten + "','" + ngay + "','" + gt + "','" + dia + "','" + sdt + "','" + cccd + "')";
                 Dataconnection.run(them);
                 hienthidata();
-                reset();
             }
             else if (thaotac == "Sửa")
             {
@@ -52,7 +50,6 @@ namespace Do_an
                 string sua = "update tb_NhanVien set Hoten=N'" + ten + "',Ngaysinh='" + ngay + "',Gioitinh='" + gt + "',Quequan='" + dia + "',SDT='" + sdt + "',CMTND='" + cccd + "'where MaNV='" + ma + "'";
                 Dataconnection.run(sua);
                 hienthidata();
-                reset();
             }
             else if (thaotac == "Xóa")
             {
@@ -68,7 +65,7 @@ namespace Do_an
                 Dataconnection.run(sqltim);
                 Dataconnection.truyvan(sqltim);
                 hienthidata();
-
+                
             }
             
         }
@@ -76,7 +73,6 @@ namespace Do_an
         private void Nhanvien_Load(object sender, EventArgs e)
         {
             hienthidata();
-            reset();
         }
 
         private void hienthidata()
@@ -85,17 +81,6 @@ namespace Do_an
             dataGridView1.DataSource = Dataconnection.truyvan(sql);
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-        }
-        private void reset()
-        {
-            tb_manv.Text = "";
-            tb_hoten.Text = "";
-            dtngay.Text = "";
-            tb_gioitinh.Text = "";
-            tb_quequan.Text = "";
-            tb_sdt.Text = "";
-            tb_cmtnd.Text = "";
-            tb_manv.Focus();
         }
         private void tb_manv_Click(object sender, EventArgs e)
         {
@@ -116,7 +101,6 @@ namespace Do_an
             tb_sdt.Clear();
             tb_cmtnd.Clear();
             tb_gioitinh.Clear();
-            tp_count.count_main = 2;
         }
 
         private void tb_hoten_Click(object sender, EventArgs e)
@@ -162,10 +146,6 @@ namespace Do_an
             }
         }
 
-        private void tb_sdt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void tb_sdt_Click(object sender, EventArgs e)
         {
@@ -189,11 +169,6 @@ namespace Do_an
             }
         }
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cb_thaotac_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_thaotac.Text == "Xóa" || cb_thaotac.Text == "Tìm")
@@ -204,8 +179,7 @@ namespace Do_an
                 tb_quequan.Clear();
                 tb_sdt.Clear();
                 tb_cmtnd.Clear();
-                tb_gioitinh.Clear();
-                tp_count.count_main = 2;
+                tb_gioitinh.Clear();;
                 //Hide UI textbox
                 tb_hoten.Hide();
                 dtngay.Hide();

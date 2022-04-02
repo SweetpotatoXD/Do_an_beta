@@ -16,7 +16,7 @@ namespace Do_an
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Nhanvien());
+            Application.Run(new MaHang());
         }
     }
 }

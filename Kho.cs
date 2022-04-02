@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Do_an
 {
-    public partial class Quanlykho : Form
+    public partial class Kho : Form
     {
-        public Quanlykho()
+        public Kho()
         {
             InitializeComponent();
         }
