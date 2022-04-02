@@ -55,7 +55,6 @@ namespace Do_an
             cmd.Connection = sqlCon;
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
-
             NgatKetNoi();
             cmd = null;
         }

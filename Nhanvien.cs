@@ -21,8 +21,9 @@ namespace Do_an
         }
         private void button1_Click(object sender, EventArgs e)
         {
-                string thaotac = cb_thaotac.Text;
+            string thaotac = cb_thaotac.Text;
             //*2check option in cb_thaotac
+            l_test.Text = thaotac;
             if (thaotac == "Thêm")
             {
                 //Add employ information
@@ -36,9 +37,37 @@ namespace Do_an
                 string them = "insert into tb_NhanVien values('" + ma + "','" + ten + "','" + ngay + "','" + gt + "','" + dia + "','" + sdt + "','" + cccd + "')";
                 Dataconnection.run(them);
                 hienthidata();
+                reset();
             }
-            else if (thaotac == "")
+            else if (thaotac == "Sửa")
             {
+
+                string ma = tb_manv.Text;
+                string ten = tb_hoten.Text;
+                DateTime ngay = DateTime.Parse(dtngay.Text);
+                string gt = tb_gioitinh.Text;
+                string dia = tb_quequan.Text;
+                int sdt = int.Parse(tb_sdt.Text);
+                int cccd = int.Parse(tb_cmtnd.Text);
+                string sua = "update tb_NhanVien set Hoten=N'" + ten + "',Ngaysinh='" + ngay + "',Gioitinh='" + gt + "',Quequan='" + dia + "',SDT='" + sdt + "',CMTND='" + cccd + "'where MaNV='" + ma + "'";
+                Dataconnection.run(sua);
+                hienthidata();
+                reset();
+            }
+            else if (thaotac == "Xóa")
+            {
+                string ma = tb_manv.Text;
+                string xoa = "delete tb_NhanVien where MaNV='"+ma+"'";
+                Dataconnection.run(xoa);
+                hienthidata();
+            }
+            else if (thaotac == "Tìm")
+            {
+                string tim = tb_manv.Text;
+                string sqltim = "select * from tb_NhanVien where MaNV='"+tim+"'";
+                Dataconnection.run(sqltim);
+                Dataconnection.truyvan(sqltim);
+                hienthidata();
 
             }
             
@@ -47,12 +76,26 @@ namespace Do_an
         private void Nhanvien_Load(object sender, EventArgs e)
         {
             hienthidata();
+            reset();
         }
 
         private void hienthidata()
         {
             string sql = "select * from tb_NhanVien";
             dataGridView1.DataSource = Dataconnection.truyvan(sql);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+        private void reset()
+        {
+            tb_manv.Text = "";
+            tb_hoten.Text = "";
+            dtngay.Text = "";
+            tb_gioitinh.Text = "";
+            tb_quequan.Text = "";
+            tb_sdt.Text = "";
+            tb_cmtnd.Text = "";
+            tb_manv.Focus();
         }
         private void tb_manv_Click(object sender, EventArgs e)
         {

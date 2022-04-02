@@ -240,7 +240,7 @@
             "Thêm",
             "Sửa",
             "Xóa",
-            "Tìm"});
+            "Tìm"});
             this.cb_thaotac.Location = new System.Drawing.Point(624, 169);
             this.cb_thaotac.Margin = new System.Windows.Forms.Padding(4);
             this.cb_thaotac.Name = "cb_thaotac";
