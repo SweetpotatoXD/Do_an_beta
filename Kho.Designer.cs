@@ -83,6 +83,10 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "Xóa tất cả";
             this.button1.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+=======
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+>>>>>>> Stashed changes
             // 
             // label12
             // 
@@ -148,12 +152,18 @@
             // 
             // dataGridView1
             // 
+<<<<<<< Updated upstream
             this.dataGridView1.AllowUserToAddRows = false;
+=======
+>>>>>>> Stashed changes
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(22, 160);
             this.dataGridView1.Name = "dataGridView1";
+<<<<<<< Updated upstream
             this.dataGridView1.ReadOnly = true;
+=======
+>>>>>>> Stashed changes
             this.dataGridView1.Size = new System.Drawing.Size(766, 220);
             this.dataGridView1.TabIndex = 30;
             // 
@@ -224,6 +234,10 @@
             this.Controls.Add(this.button4);
             this.Name = "Kho";
             this.Text = "Form4";
+<<<<<<< Updated upstream
+=======
+            this.Load += new System.EventHandler(this.Kho_Load);
+>>>>>>> Stashed changes
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

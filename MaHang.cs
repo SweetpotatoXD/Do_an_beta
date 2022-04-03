@@ -79,10 +79,17 @@ namespace Do_an
                 string ten = tb_tenh.Text;
                 string dvt = tb_dvt.Text;
                 string mk = tb_makho.Text;
+<<<<<<< Updated upstream
                 string sl = tb_sl.Text;
                 string dg = tb_dg.Text;
                 string them = "insert into tb_HangHoa values('" + ma + "','" + ten + "','" + dg + "','" + sl + "','" + dvt + "','" +mk + "')";
                 Dataconnection.run(them);
+=======
+                int sl = int.Parse(tb_sl.Text);
+                int dg =int.Parse(tb_dg.Text);
+                string them = "insert into tb_NhanVien values('" + ma + "','" + ten + "','" + dg + "','" + sl + "','" + dvt + "','" +mk + "')";
+                Dataconnection.truyvan(them);
+>>>>>>> Stashed changes
                 hienthidata();
             }
             else if (thaotac == "Sửa")
