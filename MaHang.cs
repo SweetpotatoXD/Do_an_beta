@@ -81,7 +81,7 @@ namespace Do_an
                 string mk = tb_makho.Text;
                 string sl = tb_sl.Text;
                 string dg = tb_dg.Text;
-                string them = "insert into tb_NhanVien values('" + ma + "','" + ten + "','" + dg + "','" + sl + "','" + dvt + "','" +mk + "')";
+                string them = "insert into tb_HangHoa values('" + ma + "','" + ten + "','" + dg + "','" + sl + "','" + dvt + "','" +mk + "')";
                 Dataconnection.run(them);
                 hienthidata();
             }
@@ -94,25 +94,24 @@ namespace Do_an
                 string mk = tb_makho.Text;
                 string sl = tb_sl.Text;
                 string dg = tb_dg.Text;
-                string sua = "update tb_NhanVien set Mahang=N'" + ma + "',Tenhang='" + ten + "',Dongia='" + dg + "',Soluong='" + sl+ "',DVT='" + dvt+"',Makho='"+mk+ "'where MaNV='" + ma + "'";
+                string sua = "update tb_HangHoa set Tenhang=N'" + ten + "',Dongia='" + dg + "',Soluong='" + sl+ "',DVT=N'" + dvt+"',Makho='"+mk+ "'where Mahang='" + ma + "'";
                 Dataconnection.run(sua);
                 hienthidata();
             }
             else if (thaotac == "Xóa")
             {
                 string ma = tb_mh.Text;
-                string xoa = "delete tb_NhanVien where MaNV='" + ma + "'";
+                string xoa = "delete tb_HangHoa where Mahang='" + ma + "'";
                 Dataconnection.run(xoa);
                 hienthidata();
             }
             else if (thaotac == "Tìm")
             {
                 string tim = tb_mh.Text;
-                string sqltim = "select * from tb_NhanVien where MaNV='" + tim + "'";
+                string sqltim = "select * from tb_HangHoa where Mahang='" + tim + "'";
                 Dataconnection.run(sqltim);
                 Dataconnection.truyvan(sqltim);
                 hienthidata();
-
             }
         }
     }
