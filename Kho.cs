@@ -16,10 +16,6 @@ namespace Do_an
         {
             InitializeComponent();
         }
-        private void Kho_Load(object sender, EventArgs e)
-        {
-            hienthidata();
-        }
         private void hienthidata()
         {
             string sql = "select * from tb_KhoHang";
@@ -35,7 +31,7 @@ namespace Do_an
                 //Add employ information
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
-                string them = "insert into tb_KhoHang values('" + ma + "','" + ten;
+                string them = "insert into tb_KhoHang values('" + ma + "','" + ten+"')";
                 Dataconnection.run(them);
                 hienthidata();
             }
@@ -43,14 +39,14 @@ namespace Do_an
             {
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
-                string sua = "update tb_KhoHang set Makho=N'" + ma + "',Tenkho='" + ten ;
+                string sua = "update tb_KhoHang set Tenkho='" + ten+"' where Makho='"+ma+"'" ;
                 Dataconnection.run(sua);
                 hienthidata();
             }
             else if (thaotac == "Xóa")
             {
-                string ma = tb_tk.Text;
-                string xoa = "delete tb_KhoHang where MaNV='" + ma;
+                string ma = tb_mk.Text;
+                string xoa = "delete tb_KhoHang where Makho='" + ma+"'";
                 Dataconnection.run(xoa);
                 hienthidata();
             }
@@ -83,6 +79,11 @@ namespace Do_an
                 tb_tk.Show();
                 label2.Show();
             }
+        }
+
+        private void Kho_Load_1(object sender, EventArgs e)
+        {
+            hienthidata();
         }
     }
 }
