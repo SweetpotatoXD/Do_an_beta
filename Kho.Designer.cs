@@ -83,6 +83,7 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "Xóa tất cả";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label12
             // 
@@ -126,6 +127,7 @@
             this.cb_thaotac.Size = new System.Drawing.Size(158, 21);
             this.cb_thaotac.TabIndex = 33;
             this.cb_thaotac.Text = " -Chọn thao tác-";
+            this.cb_thaotac.SelectedIndexChanged += new System.EventHandler(this.cb_thaotac_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -223,7 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Name = "Kho";
-            this.Text = "Form4";
+            this.Text = "Quản lý kho";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

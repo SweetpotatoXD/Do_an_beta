@@ -15,7 +15,7 @@ namespace Do_an
         public static SqlConnection sqlCon;//null do dung sau khi set bien
         public static void MoketNoi()
         {
-            String str = @"Data Source=LAPTOP-41EUFKCR\QUANG;Initial Catalog=QLKH;Integrated Security=True";
+            String str = @"Data Source=DESKTOP-DHJ1R7L\SQLEXPRESS;Initial Catalog=Do_an;Integrated Security=True";
             sqlCon = new SqlConnection(str);
             sqlCon.Open();
 

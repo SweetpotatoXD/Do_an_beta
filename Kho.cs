@@ -35,13 +35,12 @@ namespace Do_an
                 //Add employ information
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
-                string them = "insert into tb_KhoHang values('" + ma + "','" + ten + ")";
+                string them = "insert into tb_KhoHang values('" + ma + "','" + ten;
                 Dataconnection.run(them);
                 hienthidata();
             }
             else if (thaotac == "Sửa")
             {
-
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
                 string sua = "update tb_KhoHang set Makho=N'" + ma + "',Tenkho='" + ten ;
@@ -51,18 +50,38 @@ namespace Do_an
             else if (thaotac == "Xóa")
             {
                 string ma = tb_tk.Text;
-                string xoa = "delete tb_KhoHang where MaNV='" + ma + "'";
+                string xoa = "delete tb_KhoHang where MaNV='" + ma;
                 Dataconnection.run(xoa);
                 hienthidata();
             }
             else if (thaotac == "Tìm")
             {
                 string tim = tb_tk.Text;
-                string sqltim = "select * from tb_KhoHang where MaNV='" + tim + "'";
+                string sqltim = "select * from tb_KhoHang where MaNV='" + tim;
                 Dataconnection.run(sqltim);
                 Dataconnection.truyvan(sqltim);
                 hienthidata();
 
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tb_tk.Clear();
+            tb_mk.Clear();
+        }
+
+        private void cb_thaotac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_thaotac.Text == "Xóa" || cb_thaotac.Text == "Tìm")
+            {
+                tb_tk.Hide();
+                label2.Hide();
+            }
+            else if (cb_thaotac.Text == "Thêm" || cb_thaotac.Text == "Sửa")
+            {
+                tb_tk.Show();
+                label2.Show();
             }
         }
     }
