@@ -36,10 +36,25 @@ namespace Do_an
                 Kho f = new Kho();
                 f.ShowDialog();
             }
+            else if(who=="Hóa Đơn")
+            {
+                HoaDon f = new HoaDon();
+                f.ShowDialog();
+            }
+            else if (who == "Khách Hàng")
+            {
+                KhachHang f = new KhachHang();
+                f.ShowDialog();
+            }
             else
             {
                 MessageBox.Show("Thông báo", "Đã có lỗi xảy ra", MessageBoxButtons.AbortRetryIgnore,MessageBoxIcon.Warning);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
