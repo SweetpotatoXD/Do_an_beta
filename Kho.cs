@@ -16,10 +16,6 @@ namespace Do_an
         {
             InitializeComponent();
         }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         private void Kho_Load(object sender, EventArgs e)
         {
             hienthidata();
@@ -29,18 +25,7 @@ namespace Do_an
             string sql = "select * from tb_KhoHang";
             dataGridView1.DataSource = Dataconnection.truyvan(sql);
             dataGridView1.AllowUserToAddRows = false;
-<<<<<<< Updated upstream
         }
-=======
-            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tb_tk.Clear();
-            tb_mk.Clear();
-        }
-
->>>>>>> Stashed changes
         private void button4_Click(object sender, EventArgs e)
         {
             string thaotac = cb_thaotac.Text;
@@ -50,11 +35,7 @@ namespace Do_an
                 //Add employ information
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
-<<<<<<< Updated upstream
                 string them = "insert into tb_KhoHang values('" + ma + "','" + ten + ")";
-=======
-                string them = "insert into tb_NhanVien values('" + ma + "','" + ten +"')";
->>>>>>> Stashed changes
                 Dataconnection.run(them);
                 hienthidata();
             }
@@ -63,35 +44,21 @@ namespace Do_an
 
                 string ma = tb_mk.Text;
                 string ten = tb_tk.Text;
-<<<<<<< Updated upstream
                 string sua = "update tb_KhoHang set Makho=N'" + ma + "',Tenkho='" + ten ;
-=======
-                string sua = "update tb_NhanVien set Makho=N'" + ten + "',Tenkho='" + ten;
->>>>>>> Stashed changes
                 Dataconnection.run(sua);
                 hienthidata();
             }
             else if (thaotac == "Xóa")
             {
-<<<<<<< Updated upstream
                 string ma = tb_tk.Text;
                 string xoa = "delete tb_KhoHang where MaNV='" + ma + "'";
-=======
-                string ma = tb_mk.Text;
-                string xoa = "delete tb_NhanVien where MaNV='" + ma + "'";
->>>>>>> Stashed changes
                 Dataconnection.run(xoa);
                 hienthidata();
             }
             else if (thaotac == "Tìm")
             {
-<<<<<<< Updated upstream
                 string tim = tb_tk.Text;
                 string sqltim = "select * from tb_KhoHang where MaNV='" + tim + "'";
-=======
-                string tim = tb_mk.Text;
-                string sqltim = "select * from tb_NhanVien where MaNV='" + tim + "'";
->>>>>>> Stashed changes
                 Dataconnection.run(sqltim);
                 Dataconnection.truyvan(sqltim);
                 hienthidata();
