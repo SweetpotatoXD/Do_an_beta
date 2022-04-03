@@ -21,14 +21,15 @@ namespace Do_an
         {
             string who;
             who=this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
-            if(who=="Nhân viên")
+            if(who== "Quản lý nhân viên")
             {
                 Nhanvien f=new Nhanvien();
                 f.ShowDialog();
             }
-            else if(who=="Quản lý")
+            else if(who== "Quản lý hàng hóa")
             {
-
+                MaHang f = new MaHang();
+                f.ShowDialog();
             }
             else if(who=="Quản lý kho")
             {
