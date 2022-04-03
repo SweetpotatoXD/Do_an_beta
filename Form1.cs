@@ -20,8 +20,8 @@ namespace Do_an
         private void button1_Click(object sender, EventArgs e)
         {
             string who;
-            who=this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
-            if(who== "Quản lý nhân viên")
+            who=cb_option.Text;
+            if(who== "Nhân viên")
             {
                 Nhanvien f=new Nhanvien();
                 f.ShowDialog();
@@ -33,7 +33,8 @@ namespace Do_an
             }
             else if(who=="Quản lý kho")
             {
-
+                Kho f = new Kho();
+                f.ShowDialog();
             }
             else
             {
