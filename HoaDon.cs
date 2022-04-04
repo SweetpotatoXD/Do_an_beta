@@ -35,8 +35,8 @@ namespace Do_an
                 string hd = txthd.Text;
                 string ma = txtmk.Text;
                 string mnv = txtnv.Text;
-                DateTime ngay = DateTime.Parse(dtngay.Text);
-                int tien = int.Parse(txtdvt.Text);
+                DateTime ngay = DateTime.Parse(dt_ngay.Text);
+                int tien = int.Parse(txttt.Text);
                 string them = "insert into tb_HoaDon values('" + hd + "','" + ma + "','" + mnv + "','" + ngay + "','" + tien + "')";
                 Dataconnection.run(them);
                 hienthidata();
@@ -46,8 +46,8 @@ namespace Do_an
                 string hd = txthd.Text;
                 string ma = txtmk.Text;
                 string mnv = txtnv.Text;
-                DateTime ngay = DateTime.Parse(dtngay.Text);
-                int tien = int.Parse(txtdvt.Text);
+                DateTime ngay = DateTime.Parse(dt_ngay.Text);
+                int tien = int.Parse(txttt.Text);
                 string sua = "update tb_HoaDon set Makhach='" + ma + "',MaNV='" + mnv + "',Ngaymua='" + ngay + "',Tongtien='" + tien + "'Where MaHD='"+hd+"'";
                 Dataconnection.run(sua);
                 hienthidata();
@@ -69,11 +69,11 @@ namespace Do_an
                 txthd.Clear();
                 txtmk.Clear();
                 txtnv.Clear();
-                txtdvt.Clear();
+                txttt.Clear();
                 //Hide UI textbox
                 txtmk.Hide();
                 txtnv.Hide();
-                txtdvt.Hide();
+                txttt.Hide();
                 label2.Hide();
                 label3.Hide();
                 label4.Hide();
@@ -82,16 +82,24 @@ namespace Do_an
             else if (cb_thaotac.Text == "Thêm" || cb_thaotac.Text == "Sửa")
             {
                 txthd.Show();
-                dtngay.Show();
+                dt_ngay.Show();
                 txtmk.Show();
                 txtnv.Show();
-                txtdvt.Show();
+                txttt.Show();
                 label2.Show();
                 label3.Show();
                 label4.Show();
                 label6.Show();
                 label13.Show();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txthd.Clear();
+            txtmk.Clear();
+            txtnv.Clear();
+            txttt.Clear();
         }
     }
 }
